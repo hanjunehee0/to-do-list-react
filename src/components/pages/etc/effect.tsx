@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 
-let render = 'render'
+const render = 'render'
+let renderleng = 0
 const Effect = () => {
     const [items, setItems] = useState([0])
     const [items1, setItems1] = useState([0])
     const [total, setTotal] = useState(0)
-    render += '| render'
+    renderleng++
     useEffect(() => {
         console.log('onEffect')
         const start = performance.now()
@@ -20,14 +21,26 @@ const Effect = () => {
     }
 
     return (
-        <article>
-            <strong>{render}</strong>
+        <article className="w-[50%]">
+            <strong className="block max-w-xs truncate">{render + renderleng}</strong>
             <p>
-                1번 클릭 수 : {items.length - 1}, 2번 클릭 수 : {items1.length - 1}, total :{' '}
+                1번 클릭 수 : {items.length - 1}, 2번 클릭 수 : {items1.length - 1}, 전체 클릭 수 :
                 {total - 2}
             </p>
-            <button onClick={() => onClickButton(1)}>Click 1</button>
-            <button onClick={() => onClickButton(2)}>Click 2</button>
+            <div className="flex gap-[20px]">
+                <button
+                    className="px-[15px] py-[8px] border-1 border-b-black"
+                    onClick={() => onClickButton(1)}
+                >
+                    Click 1
+                </button>
+                <button
+                    className="px-[15px] py-[8px] border-1 border-b-black bg-black text-white"
+                    onClick={() => onClickButton(2)}
+                >
+                    Click 2
+                </button>
+            </div>
         </article>
     )
 }

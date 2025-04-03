@@ -1,11 +1,12 @@
 import { useMemo, useState } from 'react'
 
-let render2 = 'render'
+const render2 = 'render'
+let render2leng = 0
 
 const Memo = () => {
     const [items2, setItems2] = useState([0])
     const [items3, setItems3] = useState([0])
-    render2 += '| render2'
+    render2leng++
 
     const total2 = useMemo(() => {
         console.log('onMemo', items2.length)
@@ -27,14 +28,26 @@ const Memo = () => {
     }
 
     return (
-        <article>
-            <strong>{render2}</strong>
+        <article className="w-[50%]">
+            <strong className="block max-w-xs truncate">{render2 + render2leng}</strong>
             <p>
                 1번 클릭 수 : {items2.length - 1}, 2번 클릭 수 : {items3.length - 1}, 전체 클릭 수 :
                 {total2 !== 0 ? total2 - 2 : 0}
             </p>
-            <button onClick={() => onClickButton2(1)}>Click 1</button>
-            <button onClick={() => onClickButton2(2)}>Click 2</button>
+            <div className="flex gap-[20px]">
+                <button
+                    className="px-[15px] py-[8px] border-1 border-b-black"
+                    onClick={() => onClickButton2(1)}
+                >
+                    Click 1
+                </button>
+                <button
+                    className="px-[15px] py-[8px] border-1 border-b-black bg-black text-white"
+                    onClick={() => onClickButton2(2)}
+                >
+                    Click 2
+                </button>
+            </div>
         </article>
     )
 }
