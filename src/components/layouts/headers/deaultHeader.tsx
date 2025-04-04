@@ -1,10 +1,13 @@
-import Nav from '@/components/layouts/nav/index.tsx'
+import HeaderUtils from '@/components/layouts/headers/headerUtils/index.tsx'
+import HeaderLogo from '@/components/layouts/headers/logo'
+import Nav from '@/components/layouts/headers/nav/index.tsx'
 
 export const DefaultHeader = () => {
     return (
-        <header>
-            <h1>logo</h1>
+        <header className="flex px-[20px] py-[12px] justify-between relative">
+            <HeaderLogo />
             <Nav />
+            <HeaderUtils />
         </header>
     )
 }
