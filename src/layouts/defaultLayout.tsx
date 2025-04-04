@@ -9,7 +9,7 @@ export const DefaultLayout = () => {
             {/*  Header  */}
             <DefaultHeader />
             {/*  Main  */}
-            <main className="mx-auto w-full max-w-[1200px] min-h-[50vh] flex items-center justify-center">
+            <main className="mx-auto w-full max-w-[1200px] min-h-[90vh] h-full flex items-center justify-center">
                 <Outlet />
             </main>
             {/*  Footer   */}
